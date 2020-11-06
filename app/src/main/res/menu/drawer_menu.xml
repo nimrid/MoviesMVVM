@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/popular_movies"
+            android:icon="@drawable/ic_baseline_favorite_24"
+            android:title="Popular"/>
+
+        <item
+            android:icon="@drawable/ic_baseline_fiber_new_24"
+            android:id="@+id/upcoming"
+            android:title="Upcoming"/>
+
+        <item
+            android:id="@+id/top_rated"
+            android:icon="@drawable/ic_baseline_star_24"
+            android:title="Top Rated"/>
+
+    </group>
+
+</menu>

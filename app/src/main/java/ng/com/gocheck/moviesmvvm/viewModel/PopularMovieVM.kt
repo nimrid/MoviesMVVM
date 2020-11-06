@@ -5,11 +5,11 @@ import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
-import ng.com.gocheck.moviesmvvm.model.popularMovies.Result
-import ng.com.gocheck.moviesmvvm.model.network.MOVIE_PER_PAGE
-import ng.com.gocheck.moviesmvvm.model.network.NetworkState
-import ng.com.gocheck.moviesmvvm.model.repository.MovieDataSource
-import ng.com.gocheck.moviesmvvm.model.repository.PopMovieDataSourceFactory
+import ng.com.gocheck.moviesmvvm.model.movie.Result
+import ng.com.gocheck.moviesmvvm.network.MOVIE_PER_PAGE
+import ng.com.gocheck.moviesmvvm.network.NetworkState
+import ng.com.gocheck.moviesmvvm.repository.MovieDataSource
+import ng.com.gocheck.moviesmvvm.repository.PopMovieDataSourceFactory
 
 class PopularMovieVM : ViewModel() {
 

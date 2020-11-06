@@ -1,4 +1,4 @@
-package ng.com.gocheck.moviesmvvm.model.network
+package ng.com.gocheck.moviesmvvm.network
 
 enum class Status {
     RUNNING,

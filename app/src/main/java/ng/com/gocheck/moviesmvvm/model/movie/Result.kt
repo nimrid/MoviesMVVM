@@ -1,4 +1,4 @@
-package ng.com.gocheck.moviesmvvm.model.popularMovies
+package ng.com.gocheck.moviesmvvm.model.movie
 
 
 import com.google.gson.annotations.SerializedName

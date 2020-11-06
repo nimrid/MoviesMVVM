@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MoviesMVVM</string>
     <string name="movie_image">movie Image</string>
+    <string name="open_nav">open drawer</string>
+    <string name="close_nav">close drawer</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -12,9 +12,9 @@ import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.movie_list.view.*
 import kotlinx.android.synthetic.main.network_state.view.*
 import ng.com.gocheck.moviesmvvm.R
-import ng.com.gocheck.moviesmvvm.model.popularMovies.Result
-import ng.com.gocheck.moviesmvvm.model.network.NetworkState
-import ng.com.gocheck.moviesmvvm.model.network.POSTER_URL
+import ng.com.gocheck.moviesmvvm.model.movie.Result
+import ng.com.gocheck.moviesmvvm.network.NetworkState
+import ng.com.gocheck.moviesmvvm.network.POSTER_URL
 
 class PageListAdapter(private val context: Context)
     : PagedListAdapter<Result, RecyclerView.ViewHolder>(MovieDiffUtil()) {

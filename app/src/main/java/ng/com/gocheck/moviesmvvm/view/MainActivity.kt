@@ -1,55 +1,56 @@
 package ng.com.gocheck.moviesmvvm.view
 
 import android.os.Bundle
-import android.view.View
+import android.view.MenuItem
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.core.view.GravityCompat
+import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import ng.com.gocheck.moviesmvvm.R
-import ng.com.gocheck.moviesmvvm.model.network.NetworkState
-import ng.com.gocheck.moviesmvvm.viewModel.PopularMovieVM
 
-class MainActivity : AppCompatActivity() {
-
-//    private val repository = MovieRepository( MoviesApi() )
-//    private val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
-//    private val moviesApi = MoviesApi(networkConnectionInterceptor)
-//    private val viewModelFactory = ViewModelFactory(moviesApi)
+class MainActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val viewModel = ViewModelProviders.of(this).get(PopularMovieVM::class.java)
+        setSupportActionBar(toolbar)
+        val toggle = ActionBarDrawerToggle(this, drawer_layout, toolbar, R.string.open_nav,
+            R.string.close_nav)
+        drawer_layout.addDrawerListener(toggle)
+        toggle.syncState()
 
-        val popMovieAdapter = PageListAdapter(this)
+        nav_view.setNavigationItemSelectedListener(this)
 
-        val gridLayout = GridLayoutManager(this, 2)
-
-        gridLayout.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup(){
-            override fun getSpanSize(position: Int): Int {
-                val viewType = popMovieAdapter.getItemViewType(position)
-                return if (viewType == popMovieAdapter.MOVIE_VIEW_TYPE) 1
-                else 2
-            }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, PopularFragment()).commit()
+            nav_view.setCheckedItem(R.id.popular_movies)
         }
 
-        movie_recycler_view.layoutManager = gridLayout
-        movie_recycler_view.setHasFixedSize(true)
-        movie_recycler_view.adapter = popMovieAdapter
-
-        viewModel.getMovies().observe(this, Observer {
-            popMovieAdapter.submitList(it)
-        })
-
-//        still haven't fixed no internet connection
-        viewModel.getNetworkState().observe(this, Observer {
-            progress_bar.visibility = if (it == NetworkState.LOADING) View.VISIBLE else View.GONE
-            network_error.visibility = if (viewModel.isListEmpty() &&
-                it == NetworkState.ERROR) View.VISIBLE else View.GONE
-
-        })
     }
+
+    override fun onBackPressed() {
+        if (drawer_layout.isDrawerOpen(GravityCompat.START)){
+            drawer_layout.closeDrawer(GravityCompat.START)
+        }else
+            super.onBackPressed()
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.popular_movies -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, PopularFragment()).commit()
+
+            R.id.upcoming -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, UpcomingMovieFragment()).commit()
+
+            R.id.top_rated -> supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, TopRatedFragment()).commit()
+        }
+        drawer_layout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
 }

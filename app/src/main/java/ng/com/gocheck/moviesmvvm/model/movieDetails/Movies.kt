@@ -1,6 +1,8 @@
-package ng.com.gocheck.movies.model.db.movieDetails
+package ng.com.gocheck.moviesmvvm.model.movieDetails
 
 import com.google.gson.annotations.SerializedName
+import ng.com.gocheck.movies.model.db.movieDetails.Genre
+import ng.com.gocheck.movies.model.db.movieDetails.SpokenLanguage
 
 data class Movies(
     val budget: Int,

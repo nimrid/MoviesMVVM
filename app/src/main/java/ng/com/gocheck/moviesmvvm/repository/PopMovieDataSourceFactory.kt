@@ -1,9 +1,9 @@
-package ng.com.gocheck.moviesmvvm.model.repository
+package ng.com.gocheck.moviesmvvm.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
-import ng.com.gocheck.moviesmvvm.model.popularMovies.Result
-import ng.com.gocheck.moviesmvvm.model.network.MoviesApi
+import ng.com.gocheck.moviesmvvm.model.movie.Result
+import ng.com.gocheck.moviesmvvm.network.MoviesApi
 
 class PopMovieDataSourceFactory(
 //    private val moviesApi: MoviesApi

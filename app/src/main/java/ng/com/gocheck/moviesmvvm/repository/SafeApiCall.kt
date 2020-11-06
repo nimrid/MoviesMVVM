@@ -1,4 +1,4 @@
-package ng.com.gocheck.moviesmvvm.model.repository
+package ng.com.gocheck.moviesmvvm.repository
 
 import retrofit2.Response
 import java.io.IOException

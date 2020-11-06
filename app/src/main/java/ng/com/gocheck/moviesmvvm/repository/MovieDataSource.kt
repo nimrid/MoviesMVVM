@@ -1,4 +1,4 @@
-package ng.com.gocheck.moviesmvvm.model.repository
+package ng.com.gocheck.moviesmvvm.repository
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
@@ -6,10 +6,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import ng.com.gocheck.moviesmvvm.model.popularMovies.Result
-import ng.com.gocheck.moviesmvvm.model.network.FIRST_PAGE
-import ng.com.gocheck.moviesmvvm.model.network.MoviesApi
-import ng.com.gocheck.moviesmvvm.model.network.NetworkState
+import ng.com.gocheck.moviesmvvm.model.movie.Result
+import ng.com.gocheck.moviesmvvm.network.FIRST_PAGE
+import ng.com.gocheck.moviesmvvm.network.MoviesApi
+import ng.com.gocheck.moviesmvvm.network.NetworkState
 
 class MovieDataSource(
     private val moviesApi: MoviesApi
